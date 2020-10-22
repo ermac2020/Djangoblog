@@ -7,16 +7,12 @@
             <h1><a href="/">Django Blog</a></h1>
         </div>
 
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="">Primer post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="">Segundo post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
+        {% for publicacion in publicaciones %}
+            <div>
+                <p> publicado: {{ publicacion.published_date }}</p>
+                <h2><a href="">{{ publicacion.titulo }}</a></h2>
+                <p>{{ publicacion.texto|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
