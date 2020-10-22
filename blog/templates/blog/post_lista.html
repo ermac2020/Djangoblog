@@ -1,19 +1,12 @@
-<html>
-    <head>
-        <title>Django blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Blog</a></h1>
-            <h3>Git desktop</h3>
-        </div>
-
+{% extends 'blog/base.html' %}
+{% block content %}
         {% for publicacion in publicaciones %}
-            <div>
+          <div class="post">
+            <div class="date">
                 <p> publicado: {{ publicacion.published_date }}</p>
-                <h2><a href="">{{ publicacion.titulo }}</a></h2>
+              </div>
+                <h2><a href="{% url 'post_detalle' pk=publicacion.pk %}">{{ publicacion.titulo }}</a></h2>
                 <p>{{ publicacion.texto|linebreaksbr }}</p>
             </div>
         {% endfor %}
-    </body>
-</html>
+{% endblock %}
