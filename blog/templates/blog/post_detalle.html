@@ -7,6 +7,7 @@
                 {{ publicaciones.published_date }}
             </div>
         {% endif %}
+        <a class="btn btn-default" href="{% url 'post_editar' pk=publicaciones.pk %}"><span class="fa fa-pencil"></span></a>
         <h2>{{ publicaciones.titulo }}</h2>
         <p>{{ publicaciones.texto|linebreaksbr }}</p>
     </div>
